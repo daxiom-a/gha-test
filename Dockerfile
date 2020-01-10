@@ -9,7 +9,7 @@ RUN npm run build
 # production stage
 #FROM docker.pkg.github.com/daxiom/gha-test/bcgov-s2i-caddy as prod
 #FROM bcgov-s2i-caddy as prod
-FROM joshix/caddy
-RUN mkdir /var/www/html/cooperatives 
+FROM joshix/caddy as prod
+RUN mkdir /var/www/html/cooperatives
 COPY --from=build-stage /app/dist /var/www/html/cooperatives
 EXPOSE 80
